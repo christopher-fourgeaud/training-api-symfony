@@ -135,5 +135,28 @@ class Commentaire
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set livre
+     *
+     * @param \AppBundle\Entity\Livre $livre
+     *
+     * @return Commentaire
+     */
+    public function setLivre(\AppBundle\Entity\Livre $livre = null)
+    {
+        $this->livre = $livre;
+
+        return $this;
+    }
+
+    /**
+     * Get livre
+     *
+     * @return \AppBundle\Entity\Livre
+     */
+    public function getLivre()
+    {
+        return $this->livre;
+    }
+}

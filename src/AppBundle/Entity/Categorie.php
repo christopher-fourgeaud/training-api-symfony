@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Categorie
@@ -107,5 +108,38 @@ class Categorie
     {
         return $this->sousGenre;
     }
-}
 
+    /**
+     * Add livre
+     *
+     * @param \AppBundle\Entity\Livre $livre
+     *
+     * @return Categorie
+     */
+    public function addLivre(\AppBundle\Entity\Livre $livre)
+    {
+        $this->livres[] = $livre;
+
+        return $this;
+    }
+
+    /**
+     * Remove livre
+     *
+     * @param \AppBundle\Entity\Livre $livre
+     */
+    public function removeLivre(\AppBundle\Entity\Livre $livre)
+    {
+        $this->livres->removeElement($livre);
+    }
+
+    /**
+     * Get livres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLivres()
+    {
+        return $this->livres;
+    }
+}
