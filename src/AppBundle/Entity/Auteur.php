@@ -35,7 +35,7 @@ class Auteur
      */
     private $prenom;
 
-        //--- DEBUT ASSOCIATION RELATIONNELLE ---
+    //--- DEBUT ASSOCIATION RELATIONNELLE ---
 
     /**
      * Un auteur contient plusieurs livres.
