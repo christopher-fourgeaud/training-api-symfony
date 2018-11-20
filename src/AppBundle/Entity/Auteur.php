@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Auteur
  *
- * @ORM\Table(name="auteur")
+ * @ORM\Table(name="aut_auteur")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AuteurRepository")
  */
 class Auteur
@@ -15,7 +15,7 @@ class Auteur
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="aut_oid", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,17 +24,31 @@ class Auteur
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="aut_nom", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="aut_prenom", type="string", length=255)
      */
     private $prenom;
 
+        //--- DEBUT ASSOCIATION RELATIONNELLE ---
+
+    /**
+     * Un auteur contient plusieurs livres.
+     * @ORM\OneToMany(targetEntity="Livre", mappedBy="auteur")
+     */
+    private $livres;
+
+    //--- FIN ASSOCIATION RELATIONNELLE ---
+
+    public function __construct()
+    {
+        $this->livres = new ArrayCollection();
+    }
 
     /**
      * Get id

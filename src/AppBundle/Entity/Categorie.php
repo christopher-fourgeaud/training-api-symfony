@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Categorie
  *
- * @ORM\Table(name="categorie")
+ * @ORM\Table(name="cat_categorie")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategorieRepository")
  */
 class Categorie
@@ -15,7 +15,7 @@ class Categorie
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="cat_oid", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,17 +24,31 @@ class Categorie
     /**
      * @var string
      *
-     * @ORM\Column(name="genre_principal", type="string", length=255)
+     * @ORM\Column(name="cat_genre_principal", type="string", length=255)
      */
     private $genrePrincipal;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sous_genre", type="string", length=255)
+     * @ORM\Column(name="cat_sous_genre", type="string", length=255)
      */
     private $sousGenre;
 
+    //--- DEBUT ASSOCIATION RELATIONNELLE ---
+
+    /**
+     * Une catégorie contient plusieurs livres.
+     * @ORM\OneToMany(targetEntity="Livre", mappedBy="categorie")
+     */
+    private $livres;
+
+    //--- FIN ASSOCIATION RELATIONNELLE ---
+
+    public function __construct()
+    {
+        $this->livres = new ArrayCollection();
+    }
 
     /**
      * Get id

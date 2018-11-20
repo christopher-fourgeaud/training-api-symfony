@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Livre
  *
- * @ORM\Table(name="livre")
+ * @ORM\Table(name="liv_livre")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\LivreRepository")
  */
 class Livre
@@ -15,7 +15,7 @@ class Livre
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="liv_oid", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,31 +24,59 @@ class Livre
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255)
+     * @ORM\Column(name="liv_titre", type="string", length=255)
      */
     private $titre;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_parution", type="date")
+     * @ORM\Column(name="liv_date_parution", type="date")
      */
     private $dateParution;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_ajout", type="date")
+     * @ORM\Column(name="liv_date_ajout", type="date")
      */
     private $dateAjout;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="photo", type="string", length=255)
+     * @ORM\Column(name="liv_photo", type="string", length=255)
      */
     private $photo;
 
+    //--- DEBUT ASSOCIATION RELATIONNELLE ---
+
+    /**
+     * Plusieurs livres ont une categorie.
+     * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="livres")
+     * @ORM\JoinColumn(name="cat_categorie", referencedColumnName="cat_oid")
+     */
+    private $categorie;
+
+    /**
+     * Plusieurs livres ont un auteur.
+     * @ORM\ManyToOne(targetEntity="Auteur", inversedBy="livres")
+     * @ORM\JoinColumn(name="aut_auteur", referencedColumnName="aut_oid")
+     */
+    private $auteur;
+
+    /**
+     * Un livre à plusieurs commentaires.
+     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="livre")
+     */
+    private $commentaires;
+
+    //--- FIN ASSOCIATION RELATIONNELLE ---
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
 
     /**
      * Get id

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Commentaire
  *
- * @ORM\Table(name="commentaire")
+ * @ORM\Table(name="com_commentaire")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentaireRepository")
  */
 class Commentaire
@@ -15,7 +15,7 @@ class Commentaire
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="com_oid", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,23 +24,34 @@ class Commentaire
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudo", type="string", length=255)
+     * @ORM\Column(name="com_pseudo", type="string", length=255)
      */
     private $pseudo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message", type="text")
+     * @ORM\Column(name="com_message", type="text")
      */
     private $message;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="com_date", type="datetime")
      */
     private $date;
+    
+    //--- DEBUT ASSOCIATION RELATIONNELLE ---
+
+    /**
+     * Plusieurs commentaires sont dans un livre.
+     * @ORM\ManyToOne(targetEntity="Livre", inversedBy="commentaires")
+     * @ORM\JoinColumn(name="liv_livre", referencedColumnName="liv_oid")
+     */
+    private $livre;
+
+    //--- FIN ASSOCIATION RELATIONNELLE ---
 
 
     /**
