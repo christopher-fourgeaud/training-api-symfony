@@ -1,0 +1,30 @@
+# src/AppBundle/Resources/config/serialization.yml
+AppBundle\Entity\Auteur:
+  attributes:
+    id:
+      groups : ['auteur', 'livres']
+    nom :
+      groups : ['auteur', 'livres']
+    prenom:
+      groups : ['auteur', 'livres']
+    livres :
+      groups : ['auteur']
+
+AppBundle\Entity\Livre:
+  attributes:
+    id:
+      groups : ['auteur', 'livres']
+    titre :
+      groups : ['auteur', 'livres']
+    date_parution:
+      groups : ['auteur', 'livres']
+    date_ajout :
+      groups : ['auteur', 'livres']
+    photo :
+      groups : ['auteur', 'livres']
+    categorie: 
+      groups : ['auteur', 'livres']
+    auteur :
+      groups : ['livres']
+    commentaires :
+      groups :  ['auteur', 'livres']
