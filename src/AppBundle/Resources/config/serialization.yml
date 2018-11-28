@@ -2,29 +2,40 @@
 AppBundle\Entity\Auteur:
   attributes:
     id:
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres']
     nom :
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres']
     prenom:
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres']
     livres :
-      groups : ['auteur']
+      groups : ['auteurs']
 
 AppBundle\Entity\Livre:
   attributes:
     id:
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres','categories']
     titre :
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres','categories']
     date_parution:
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres','categories']
     date_ajout :
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres','categories']
     photo :
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres','categories']
     categorie: 
-      groups : ['auteur', 'livres']
+      groups : ['auteurs', 'livres']
     auteur :
-      groups : ['livres']
+      groups : ['livres','categories']
     commentaires :
-      groups :  ['auteur', 'livres']
+      groups :  ['auteurs', 'livres','categories']
+
+AppBundle\Entity\Categorie:
+  attributes:
+    id:
+      groups: ['categories']
+    genrePrincipal:
+      groups: ['categories']
+    sousGenre:
+      groups: ['categories']
+    livres:
+      groups: ['categories']
