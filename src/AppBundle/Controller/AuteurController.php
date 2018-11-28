@@ -16,7 +16,7 @@ class AuteurController extends Controller
 {
     //--- Méthode pour récupérer et afficher tout les auteurs ---
     /**
-     * @Rest\View(serializerGroups={"auteur"})
+     * @Rest\View(serializerGroups={"auteurs"})
      * @Rest\Get("/api/auteur")
      */
     public function recuperationAuteursAction()
@@ -49,7 +49,7 @@ class AuteurController extends Controller
 
     //--- Méthode pour récupérer et afficher un auteur ---
     /**
-     * @Rest\View(serializerGroups={"auteur"})
+     * @Rest\View(serializerGroups={"auteurs"})
      * @Rest\Get("/api/auteur/{id}")
      */
     public function recuperationAuteurAction(Auteur $auteur)
