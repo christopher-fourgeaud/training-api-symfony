@@ -32,10 +32,10 @@ AppBundle\Entity\Livre:
 AppBundle\Entity\Categorie:
   attributes:
     id:
-      groups: ['categories']
+      groups: ['categories','livres']
     genrePrincipal:
-      groups: ['categories']
+      groups: ['categories','livres']
     sousGenre:
-      groups: ['categories']
+      groups: ['categories','livres']
     livres:
       groups: ['categories']
