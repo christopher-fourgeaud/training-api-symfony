@@ -68,7 +68,7 @@ class Livre
 
     /**
      * Un livre à plusieurs commentaires.
-     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="livre")
+     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="livre", cascade={"remove"})
      */
     private $commentaires;
 
