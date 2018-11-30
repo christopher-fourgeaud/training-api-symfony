@@ -39,3 +39,16 @@ AppBundle\Entity\Categorie:
       groups: ['categories','livres']
     livres:
       groups: ['categories']
+
+AppBundle\Entity\Commentaire:
+  attributes:
+    id:
+      groups: ['livres']
+    pseudo:
+      groups: ['livres']
+    message:
+      groups: ['livres']
+    date:
+      groups: ['livres']
+    livre:
+      groups:
