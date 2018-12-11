@@ -17,7 +17,7 @@ class AuteurController extends Controller
     //--- Méthode pour récupérer et afficher tout les auteurs ---
     /**
      * @Rest\View(serializerGroups={"auteurs"})
-     * @Rest\Get("/api/auteur")
+     * @Rest\Get("/api/auteurs")
      */
     public function recuperationAuteursAction()
     {
@@ -30,7 +30,7 @@ class AuteurController extends Controller
     //--- Méthode pour créer un auteur ---
     /**
      * @Rest\View(statusCode=Response::HTTP_CREATED)
-     * @Rest\Post("/api/auteur/create")
+     * @Rest\Post("/api/auteurs")
      */
     public function creationAuteurAction(Request $request)
     {
@@ -60,7 +60,7 @@ class AuteurController extends Controller
     //--- Méthode pour récupérer et éditer un auteur ---
     /**
      * @Rest\View()
-     * @Rest\Patch("/api/auteur/{id}/edit")
+     * @Rest\Patch("/api/auteur/{id}")
      */
     public function editAuteurAction(Request $request, Auteur $auteur)
     {
@@ -78,7 +78,7 @@ class AuteurController extends Controller
     //--- Méthode pour récupérer et supprimer un auteur ---
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT))
-     * @Rest\Delete("/api/auteur/{id}/delete")
+     * @Rest\Delete("/api/auteur/{id}")
      */
     public function deleteAuteurAction(Auteur $auteur)
     {

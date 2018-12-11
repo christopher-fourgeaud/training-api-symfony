@@ -18,7 +18,7 @@ class CommentaireController extends Controller
     //--- Méthode pour récupérer et supprimer un commentaire ---
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT))
-     * @Rest\Delete("/api/commentaire/{id}/delete")
+     * @Rest\Delete("/api/commentaire/{id}")
      */
     public function deleteCommentaireAction(Commentaire $commentaire)
     {

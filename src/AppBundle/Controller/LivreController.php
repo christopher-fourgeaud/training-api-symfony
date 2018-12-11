@@ -17,7 +17,7 @@ class LivreController extends Controller
     //--- Méthode pour récupérer et afficher tout les livres ---
     /**
      * @Rest\View(serializerGroups={"livres"})
-     * @Rest\Get("/api/livre")
+     * @Rest\Get("/api/livres")
      */
     public function recuperationLivresAction()
     {
@@ -30,7 +30,7 @@ class LivreController extends Controller
     //--- Méthode pour créer un livre ---
     /**
      * @Rest\View(serializerGroups={"livres"}, statusCode=Response::HTTP_CREATED)
-     * @Rest\Post("/api/livre/create")
+     * @Rest\Post("/api/livres")
      */
     public function creationLivreAction(Request $request)
     {
@@ -66,7 +66,7 @@ class LivreController extends Controller
     //--- Méthode pour récupérer et éditer un livre ---
     /**
      * @Rest\View(serializerGroups={"livres"},)
-     * @Rest\Patch("/api/livre/{id}/edit")
+     * @Rest\Patch("/api/livre/{id}")
      */
     public function editLivreAction(Request $request, Livre $livre)
     {
@@ -89,7 +89,7 @@ class LivreController extends Controller
     //--- Méthode pour récupérer et supprimer un livre ---
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT))
-     * @Rest\Delete("/api/livre/{id}/delete")
+     * @Rest\Delete("/api/livre/{id}")
      */
     public function deleteLivreAction(Livre $livre)
     {

@@ -17,7 +17,7 @@ class CategorieController extends Controller
     //--- Méthode pour récupérer et afficher toutes les catégories ---
     /**
      * @Rest\View(serializerGroups={"categories"})
-     * @Rest\Get("/api/categorie")
+     * @Rest\Get("/api/categories")
      */
     public function recuperationCategoriesAction()
     {
@@ -30,7 +30,7 @@ class CategorieController extends Controller
     //--- Méthode pour créer une catégorie ---
     /**
      * @Rest\View(statusCode=Response::HTTP_CREATED)
-     * @Rest\Post("/api/categorie/create")
+     * @Rest\Post("/api/categories")
      */
     public function creationCategorieAction(Request $request)
     {
@@ -60,7 +60,7 @@ class CategorieController extends Controller
     //--- Méthode pour récupérer et éditer une catégorie ---
     /**
      * @Rest\View()
-     * @Rest\Patch("/api/categorie/{id}/edit")
+     * @Rest\Patch("/api/categorie/{id}")
      */
     public function editCategorieAction(Request $request, Categorie $categorie)
     {
@@ -78,7 +78,7 @@ class CategorieController extends Controller
     //--- Méthode pour récupérer et supprimer une catégorie ---
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT))
-     * @Rest\Delete("/api/categorie/{id}/delete")
+     * @Rest\Delete("/api/categorie/{id}")
      */
     public function deleteCategorieAction(Categorie $categorie)
     {
